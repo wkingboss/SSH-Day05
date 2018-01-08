@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--实体映射文件 描述实体类与数据库表的对应关系-->
+<class name="com.lanou.domain.User" table="user">
+    <id name="id" column="id" type="java.lang.Integer">
+        <!--主键的生成策略 native 本地策略
+        mysql:identify,整型自动增长
+        oracle:uuid,随机字符串-->
+        <generator class="native"/>
+    </id>
+
+    <!--普通属性声明-->
+    <property name="name" column="name" type="java.lang.String"
+              length="30">
+    </property>
+    <!--如果实体类属性名和类型与数据库表中的类名和列名,
+    一致则可以省略column和type的声明-->
+    <property name="password" column="password" type="java.lang.String"
+              length="30">
+    </property>
+ </class>
+
+</hibernate-mapping>
